@@ -16,6 +16,7 @@ public class Program {
 
         list.Delete(2);
         System.out.println("Result: " + list.Find("aaaaaa").getInformation());
+
         list.Update(6, 16);
         System.out.println("Result: " + list.Find(16).getInformation());
 
