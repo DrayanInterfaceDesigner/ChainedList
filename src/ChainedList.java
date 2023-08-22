@@ -10,7 +10,6 @@ public class ChainedList {
         Node x = new Node();
         x.setInformation(a);
         if(this.Head == null) {
-            System.out.println("Set Head");
             this.Head = x;
         }
         else {
@@ -71,9 +70,6 @@ public class ChainedList {
         System.out.println(n.getInformation());
         if(n.getNext() != null) {
             _printAll(n.getNext());
-        }
-        else {
-            System.out.println("--end--");
         }
     }
 
