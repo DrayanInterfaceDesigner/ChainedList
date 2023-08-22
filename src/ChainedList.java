@@ -20,7 +20,7 @@ public class ChainedList {
     }
 
     public void Delete(Object value) {
-        Node x = Find(value);
+        Node x = this.Find(value);
         if(x == null) return;
 
         Node p = x.getPrevious();
@@ -37,7 +37,13 @@ public class ChainedList {
     }
 
     public Node Find(Object value) {
-        return findRecursively(this.Head, value);
+        return this.findRecursively(this.Head, value);
+    }
+
+    public void Update(Object oldValue, Object newValue) {
+        Node x = this.Find(oldValue);
+        if(x == null) return;
+        x.setInformation(newValue);
     }
 
     private Node findRecursively(Node from, Object value) {
