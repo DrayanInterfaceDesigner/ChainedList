@@ -1,16 +1,18 @@
 public class Node {
-    private Integer information;
+    private Object information;
+    private Node previous;
     private Node next;
     public Node() {
         this.information = null;
+        this.previous = null;
         this.next = null;
     }
 
-    public Integer getInformation() {
+    public Object getInformation() {
         return information;
     }
 
-    public void setInformation(Integer information) {
+    public void setInformation(Object information) {
         this.information = information;
     }
 
@@ -20,5 +22,13 @@ public class Node {
 
     public void setNext(Node next) {
         this.next = next;
+    }
+
+    public Node getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(Node previous) {
+        this.previous = previous;
     }
 }
