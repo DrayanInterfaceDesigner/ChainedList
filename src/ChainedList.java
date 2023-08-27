@@ -21,14 +21,31 @@ public class ChainedList {
 
     public void Delete(Object value) {
         Node x = this.Find(value);
+        this._Delete(x);
+    }
+
+    private void _Delete(Node x) {
         if(x == null) return;
 
         Node p = x.getPrevious();
         Node n = x.getNext();
 
-        if(n != null) {
+        if(Objects.equals(x, this.Head)) {
+            if(n != null) {
+                this.Head = n;
+                n.setPrevious(null);
+            } else this.Head = null;
+//            x = null;
+//            return;
+        }
+
+        if(n != null && p != null) {
             p.setNext(n);
             n.setPrevious(p);
+        }
+
+        if(Objects.equals(x, this.findLast(x))) {
+            p.setNext(null);
         }
 
         x.setPrevious(null);
@@ -46,6 +63,10 @@ public class ChainedList {
         x.setInformation(newValue);
     }
 
+    private Node findByIndex(Node from, int index) {
+        return new Node();
+    }
+
     private Node findRecursively(Node from, Object value) {
         if(from.getNext() != null) {
             if(Objects.equals(value, from.getInformation())) {
@@ -53,6 +74,11 @@ public class ChainedList {
             }
             else {
                 return findRecursively(from.getNext(), value);
+            }
+        }
+        else {
+            if(Objects.equals(value, from.getInformation())) {
+                return from;
             }
         }
         return null;
